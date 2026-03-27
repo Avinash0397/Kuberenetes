@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: salary
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: salary
+  template:
+    metadata:
+      labels:
+        app: salary
+    spec:
+      containers:
+      - name: salary
+        image: sachinchaudhary1/salary:latest
+        ports:
+        - containerPort: 8083
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: salary
+spec:
+  type: NodePort
+  selector:
+    app: salary
+  ports:
+  - port: 80
+    targetPort: 8083
+    nodePort: 30083
