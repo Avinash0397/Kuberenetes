@@ -2,7 +2,7 @@
 FROM alpine
 
 # Maintainer info
-LABEL maintainer="Hifza Khan"
+LABEL maintainer="Avinash Mishra"
 
 # Install Node.js
 RUN apk update && apk add nodejs
